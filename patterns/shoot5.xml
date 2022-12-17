@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml 
+          xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+<action label="top">
+ <fire>
+  <direction type="absolute">180</direction>
+  <bullet>
+   <action>
+    <accel>
+     <horizontal>0.5</horizontal>
+     <term>60</term>
+    </accel>
+    <wait>60</wait>
+    <changeDirection>
+	 <direction type="absolute">225</direction>
+	 <term>60</term>
+	</changeDirection>
+   </action>
+  </bullet>
+ </fire>
+</action>
+
+</bulletml>

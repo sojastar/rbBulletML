@@ -13,62 +13,58 @@
 
 
 
-
-
-#####################################################################################
+################################################################################
 #   Includes :
-#####################################################################################
+################################################################################
 
 ### For the XML parser itself :
 require 'rexml/document'
-include REXML
+#include REXML
 
 
 
 
 
-
-
-#####################################################################################
+################################################################################
 #   Class implementations :
-#####################################################################################
+################################################################################
 
-#####################################################################################
+################################################################################
 #   The BULLETML class :
-#####################################################################################
-class BulletML
-
-  attr_accessor :bullets, :fires, :actions, :topActions, :type
-
-
-
-  ###################################################################################
-  #   Creating the BulletML object :
-  #
-  #   filename : the text file to be parsed
-  #
-  ###################################################################################
-  def initialize(filename)
-    
-    @bullets    = Hash.new
-    @fires      = Hash.new
-    @actions    = Hash.new
-    @topActions = []
-
-    parseBulletMLFile(filename)
-
-    @actions.each_key do |k|
-      if k =~ /top/ then
-        @topActions << @actions[k]
+################################################################################
+module BulletML
+  class Pattern
+    attr_accessor :bullets, :fires, :actions, :topActions, :type
+  
+  
+  
+    ###################################################################################
+    #   Creating the BulletML object :
+    #
+    #   filename : the text file to be parsed
+    #
+    ###################################################################################
+    def initialize(filename)
+      
+      @bullets    = Hash.new
+      @fires      = Hash.new
+      @actions    = Hash.new
+      @topActions = []
+  
+      parseBulletMLFile(filename)
+  
+      @actions.each_key do |k|
+        if k =~ /top/ then
+          @topActions << @actions[k]
+        end
       end
+  
+      if @topActions == [] then
+        print "There is no top labeled action. Aborting.\n"
+        exit
+      end
+  
     end
-
-    if @topActions == [] then
-      print "There is no top labeled action. Aborting.\n"
-      exit
-    end
-
-  end
 
 
 
