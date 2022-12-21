@@ -1,9 +1,10 @@
 require 'rexml/document'
 
-require_relative '../lib/rbBulletML/pattern.rb'
+require_relative '../lib/rb_bulletml/pattern.rb'
 
 class GTK
   attr_accessor :args
+
   def initialize
     @args = Args.new
   end
