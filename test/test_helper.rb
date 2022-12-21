@@ -8,7 +8,17 @@ class GTK
   def initialize
     @args = Args.new
   end
+end
 
+class Args
+  attr_accessor :gtk
+
+  def initialize
+    @gtk = ToolKit.new
+  end
+end
+
+class ToolKit
   def read_file(filename)
     File.read filename
   end
@@ -37,3 +47,4 @@ class GTK
   end
 end
 
+$gtk = GTK.new
