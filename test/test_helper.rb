@@ -1,3 +1,4 @@
+require 'pp'
 require 'rexml/document'
 
 require_relative '../lib/rb_bulletml/pattern.rb'
